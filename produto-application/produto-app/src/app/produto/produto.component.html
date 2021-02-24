@@ -1,0 +1,50 @@
+<h1 class="mt-4">Produtos</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Cadastro</li>
+</ol>
+
+<div class="container">
+  <form #ProdutoForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Código: </label>
+          <input type="number" class="form-control" disabled=true>
+          <label>Descrição: </label>
+          <input type="text" [(ngModel)]="produto.descricao" name="decricao" class="form-control">
+          <label>Data de Cadastro: </label>
+          <input type="text" class="form-control" disabled=true>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <td>Código</td>
+            <td>Descrição</td>
+            <td>Data de Cadastro</td>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let prod of produtos">
+            <td>{{prod.id}}</td>
+            <td>{{prod.descricao}}</td>
+            <td>{{prod.dataCadastro}}</td>
+            <td><button class="btn btn-danger"> Alterar </button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
